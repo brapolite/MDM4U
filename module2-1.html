@@ -1,26 +1,45 @@
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html>
 <head>
 <title>MDM4U</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style>
-body {font-family: "Roboto", sans-serif}
+body {
+  font-family: "Roboto", sans-serif;
+}
+
 .w3-bar-block .w3-bar-item {
   padding: 16px;
   font-weight: bold;
 }
+
+.graph-container {
+  margin-bottom: 40px;
+}
+
+.graph-container iframe {
+  display: block;
+  width: 100%;
+  max-width: 700px;
+  height: 500px;
+  border: 1px solid #ccc;
+}
 </style>
+
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
-<body>
-<!--Navigation bar-->
-<div id="nav-placeholder">
 
+<body>
+
+<!-- Navigation bar -->
+<div id="nav-placeholder">
 </div>
 
 <script>
@@ -28,71 +47,92 @@ $(function(){
   $("#nav-placeholder").load("nav.html");
 });
 </script>
+<!-- End of Navigation bar -->
 
-<!--end of Navigation bar-->
-
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+<div class="w3-overlay w3-hide-large w3-animate-opacity"
+     onclick="w3_close()"
+     style="cursor:pointer"
+     id="myOverlay">
+</div>
 
 <div class="w3-main" style="margin-left:250px;">
 
 <div id="myTop" class="w3-container w3-top w3-theme w3-large">
-  <p><i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge" onclick="w3_open()"></i>
-  <span id="myIntro" class="w3-hide">MDM4U</span></p>
+  <p>
+    <i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge"
+       onclick="w3_open()"></i>
+    <span id="myIntro" class="w3-hide">MDM4U</span>
+  </p>
 </div>
 
+<!-- Page title -->
 <header class="w3-container w3-theme" style="padding:64px 32px">
-  <h1 class="w3-xxxlarge">Méthodes d'échantillonnage</h1>
+  <h1 class="w3-xxxlarge">Module 1.4 : Sources de données</h1>
 </header>
 
 <div class="w3-container" style="padding:32px">
 
-<h1>Méthodes d'échantillonnage</h1>
+  <h1>Les types de distributions</h1>
 
-<h2>Échantillonnage volontaire</h2>
-<p>Les gens décident eux-mêmes s'ils veulent participer à l'étude. Le chercheur ne choisit personne directement. Ça crée souvent un biais parce que ce sont surtout les personnes ayant une opinion très forte qui prennent le temps de répondre.</p>
-<p><b>Exemple :</b> Un sondage rapide sur un site de nouvelles ou une story Instagram où les gens votent s'ils sont pour ou contre une règle.</p>
+  <!-- Distribution en U -->
+  <div class="graph-container">
+    <h2>La distribution en U</h2>
 
-<h2>Échantillonnage aléatoire simple</h2>
-<p>Chaque personne dans la population a exactement la même chance d'être choisie. La sélection se fait entièrement au hasard, sans aucun critère précis.</p>
-<p><b>Exemple :</b> Mettre tous les noms des élèves de l'école dans un chapeau, bien mélanger, et en tirer 30 au sort.</p>
+    <iframe
+      src="https://www.desmos.com/calculator/dk5elfxzbk?embed"
+      title="Graphique de la distribution en U"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+  </div>
 
-<h2>Échantillonnage aléatoire stratifié</h2>
-<p>On divise d'abord la population en plusieurs groupes homogènes appelés « strates » (par exemple par niveau scolaire ou par âge). Ensuite, on choisit au hasard un certain nombre de personnes dans chaque groupe, de façon proportionnelle.</p>
-<p><b>Exemple :</b> Dans une école de 1000 élèves, on sépare tout le monde par niveau (9e, 10e, 11e, 12e). Si la 9e année représente 40 % de l'école, 40 % des élèves sélectionnés dans notre échantillon viendront de la 9e année.</p>
+  <!-- Distribution asymétrique -->
+  <div class="graph-container">
+    <h2>La distribution asymétrique</h2>
 
-<h2>Échantillonnage aléatoire en grappes</h2>
-<p>On divise la population en sous-groupes déjà existants qu'on appelle des « grappes » (comme des classes d'école ou des quartiers). On tire au sort quelques grappes entières, puis on sonde absolument toutes les personnes qui se trouvent dans ces grappes-là.</p>
-<p><b>Exemple :</b> Pour faire une recherche dans un conseil scolaire, on choisit 3 écoles secondaires au hasard, et on fait passer le sondage à tous les élèves de ces 3 écoles.</p>
+    <iframe
+      src="https://www.desmos.com/calculator/e3jxn1q9nq?embed"
+      title="Graphique de la distribution asymétrique"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+  </div>
 
-<h2>Échantillonnage aléatoire systématique</h2>
-<p>On met la population dans un certain ordre. On choisit un point de départ au hasard, puis on sélectionne des individus à un intervalle fixe (par exemple chaque 10e personne).</p>
-<p><b>Exemple :</b> Se placer à l'entrée du centre d'achats, choisir la 3e personne qui entre, puis faire remplir le sondage à chaque 10e personne après elle (la 13e, la 23e, la 33e, etc.).</p>
+  <!-- Distribution uniforme -->
+  <div class="graph-container">
+    <h2>La distribution uniforme</h2>
 
-<h1>Exercices</h1>
+    <iframe
+      src="https://www.desmos.com/calculator/ntxtqgw7ev?embed"
+      title="Graphique de la distribution uniforme"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+  </div>
 
-<p><a href="https://docs.google.com/document/d/1m3FkEO1bGn1i4ogB317v5NZ2hA0z-SSnAJzTEb3qiqc/edit?usp=sharing" target="_blank">Exercices 1.1 et 1.2 - La représentation des données et l'échantillonnage</a>
-</p>
+  <!-- Distribution en cloche -->
+  <div class="graph-container">
+    <h2>La distribution en cloche</h2>
+
+    <iframe
+      src="https://www.desmos.com/calculator/qo4rxqrjiw?embed"
+      title="Graphique de la distribution en cloche"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
+  </div>
 
 </div>
 
-<!-- Bibliographie -->
-
-<div class="w3-container" style="padding:0 32px 32px 32px">
-  <p>
-    <a href="https://docs.google.com/document/d/1YKkoXDrDtPq1vzDCu97JL_Bn9CtmqEXL-rhwQ5RVXIQ/edit?usp=sharing" target="_blank">
-      Voir la bibliographie
-    </a>
-  </p>
-</div>
-
+<!-- Footer -->
 <footer class="w3-container w3-theme" style="padding:32px">
   <p>Contenu de cette page web par M. Gore (prénom: Pytha)</p>
-  <p><small>Sources : Programme d'études MDM4U (Ministère de l'Éducation de l'Ontario) & Guide des méthodes d'échantillonnage de Statistique Canada.</small></p>
 </footer>
 
 </div>
 
 <script>
+
 // Open and close the sidebar on medium and small screens
 function w3_open() {
   document.getElementById("mySidebar").style.display = "block";
@@ -105,14 +145,33 @@ function w3_close() {
 }
 
 // Change style of top container on scroll
-window.onscroll = function() {myFunction()};
+window.onscroll = function() {
+  myFunction();
+};
+
 function myFunction() {
-  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-    document.getElementById("myTop").classList.add("w3-card-4", "w3-animate-opacity");
-    document.getElementById("myIntro").classList.add("w3-show-inline-block");
+  if (document.body.scrollTop > 80 ||
+      document.documentElement.scrollTop > 80) {
+
+    document.getElementById("myTop").classList.add(
+      "w3-card-4",
+      "w3-animate-opacity"
+    );
+
+    document.getElementById("myIntro").classList.add(
+      "w3-show-inline-block"
+    );
+
   } else {
-    document.getElementById("myIntro").classList.remove("w3-show-inline-block");
-    document.getElementById("myTop").classList.remove("w3-card-4", "w3-animate-opacity");
+
+    document.getElementById("myIntro").classList.remove(
+      "w3-show-inline-block"
+    );
+
+    document.getElementById("myTop").classList.remove(
+      "w3-card-4",
+      "w3-animate-opacity"
+    );
   }
 }
 
