@@ -1,92 +1,721 @@
+```html
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-<title>MDM4U</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body {font-family: "Roboto", sans-serif}
-.w3-bar-block .w3-bar-item {
-  padding: 16px;
-  font-weight: bold;
-}
-</style>
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>2.2 - Mesures de tendance centrale</title>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <style>
+        html, body, h1, h2, h3, h4, h5, h6 {
+            font-family: "Roboto", sans-serif;
+        }
+
+        body {
+            background-color: #f4f8f8;
+            color: #263238;
+            line-height: 1.7;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 25px;
+        }
+
+        .hero {
+            background-color: #009688;
+            color: white;
+            padding: 35px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .section-card {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .section-card h2 {
+            color: #008577;
+            border-bottom: 2px solid #b2dfdb;
+            padding-bottom: 8px;
+        }
+
+        .formula {
+            background-color: #e0f2f1;
+            border-left: 5px solid #009688;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 18px;
+            overflow-wrap: anywhere;
+        }
+
+        .example {
+            background-color: #f5f5f5;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .warning {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .important {
+            color: #00796b;
+            font-weight: bold;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #009688;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2fafa;
+        }
+
+        .resource-link {
+            display: block;
+            background-color: #e0f2f1;
+            color: #00695c;
+            text-decoration: none;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 6px;
+        }
+
+        .resource-link:hover {
+            background-color: #b2dfdb;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #009688;
+            color: white;
+            padding: 12px 16px;
+            border-radius: 50%;
+            text-decoration: none;
+        }
+
+        @media screen and (max-width: 992px) {
+            .main-content {
+                margin-left: 0;
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-<!--Navigation bar-->
-<div id="nav-placeholder">
 
-</div>
+    <!-- Navigation bar -->
+    <div id="nav-placeholder"></div>
 
-<script>
-$(function(){
-  $("#nav-placeholder").load("nav.html");
-});
-</script>
-<!--end of Navigation bar-->
+    <script>
+        $(function() {
+            $("#nav-placeholder").load("nav.html");
+        });
+    </script>
 
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+    <div class="main-content">
 
-<div class="w3-main" style="margin-left:250px;">
+        <!-- HEADER -->
+        <header class="hero" id="top">
+            <h1><i class="fa fa-bar-chart"></i> 2.2 — Mesures de tendance centrale</h1>
+            <p>
+                Résumé de la sous-unité : moyenne arithmétique, moyenne pondérée,
+                moyenne de données groupées, médiane et mode.
+            </p>
+        </header>
 
-<div id="myTop" class="w3-container w3-top w3-theme w3-large">
-  <p><i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge" onclick="w3_open()"></i>
-  <span id="myIntro" class="w3-hide">MDM4U</span></p>
-</div>
+        <!-- OBJECTIVES -->
+        <section class="section-card">
+            <h2><i class="fa fa-bullseye"></i> Objectifs d'apprentissage</h2>
 
-<header class="w3-container w3-theme" style="padding:64px 32px">
-  <h1 class="w3-xxxlarge">Titre du module</h1>
-</header>
+            <p>À la fin de cette sous-unité, je devrais être capable de :</p>
 
-<div class="w3-container" style="padding:32px">
+            <ul>
+                <li>Calculer la moyenne arithmétique d'un ensemble de données.</li>
+                <li>Calculer une moyenne pondérée lorsque les valeurs n'ont pas toutes la même importance.</li>
+                <li>Estimer la moyenne de données présentées dans des intervalles.</li>
+                <li>Déterminer la médiane et le mode d'un ensemble de données.</li>
+                <li>Choisir la mesure de tendance centrale la plus appropriée.</li>
+                <li>Utiliser une calculatrice ou un tableur pour vérifier mes calculs.</li>
+            </ul>
+        </section>
 
-<!-- Tu peux complètement modifier le contenu ci-dessous -->
+        <!-- INTRODUCTION -->
+        <section class="section-card">
+            <h2>1. Qu'est-ce qu'une mesure de tendance centrale?</h2>
 
-<h1>Entête 1</h1>
-<h2>Entête 2</h2>
-<p>Ceci est un paragraphe qui contient <a href="https://www.w3schools.com/html/html_links.asp" target="_blank">un lien</a> qui ouvre dans une nouvelle fenêtre.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Ui8o6fJjkck" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>
+                Une mesure de tendance centrale représente une valeur typique ou centrale
+                d'un ensemble de données. Elle permet de résumer plusieurs données avec
+                une seule valeur.
+            </p>
 
+            <p>Les trois principales mesures sont :</p>
 
-<!-- Tu peux complètement modifier le contenu par dessus cette ligne -->
+            <ul>
+                <li><strong>La moyenne :</strong> la somme des valeurs divisée par le nombre de valeurs.</li>
+                <li><strong>La médiane :</strong> la valeur située au milieu des données ordonnées.</li>
+                <li><strong>Le mode :</strong> la valeur qui apparaît le plus souvent.</li>
+            </ul>
 
-</div>
+            <div class="example">
+                <strong>Exemple :</strong> 2, 3, 3, 4, 8
 
-<footer class="w3-container w3-theme" style="padding:32px">
-  <p>Contenu de cette page web par M. Gore (prénom: Pytha)</p>
-</footer>
-     
-</div>
+                <ul>
+                    <li>Moyenne : (2 + 3 + 3 + 4 + 8) ÷ 5 = 4</li>
+                    <li>Médiane : 3</li>
+                    <li>Mode : 3</li>
+                </ul>
+            </div>
+        </section>
 
-<script>
-// Open and close the sidebar on medium and small screens
-function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("myOverlay").style.display = "block";
-}
+        <!-- ARITHMETIC MEAN -->
+        <section class="section-card">
+            <h2>2. La moyenne arithmétique</h2>
 
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-  document.getElementById("myOverlay").style.display = "none";
-}
+            <p>
+                La moyenne arithmétique est calculée en additionnant toutes les valeurs,
+                puis en divisant la somme par le nombre total de valeurs.
+            </p>
 
-// Change style of top container on scroll
-window.onscroll = function() {myFunction()};
-function myFunction() {
-  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-    document.getElementById("myTop").classList.add("w3-card-4", "w3-animate-opacity");
-    document.getElementById("myIntro").classList.add("w3-show-inline-block");
-  } else {
-    document.getElementById("myIntro").classList.remove("w3-show-inline-block");
-    document.getElementById("myTop").classList.remove("w3-card-4", "w3-animate-opacity");
-  }
-}
+            <div class="formula">
+                <strong>Formule :</strong><br>
+                Moyenne = Somme de toutes les valeurs ÷ Nombre de valeurs
+            </div>
 
-</script>
-     
+            <p>Avec la notation mathématique :</p>
+
+            <div class="formula">
+                <strong>x̄ = Σx ÷ n</strong>
+                <ul>
+                    <li><strong>x̄</strong> = moyenne</li>
+                    <li><strong>Σx</strong> = somme de toutes les valeurs</li>
+                    <li><strong>n</strong> = nombre total de valeurs</li>
+                </ul>
+            </div>
+
+            <div class="example">
+                <h3>Exemple</h3>
+
+                <p>Voici les notes d'un élève : 70, 80, 85, 90 et 95.</p>
+
+                <p>Étape 1 : Additionner les valeurs.</p>
+                <p>70 + 80 + 85 + 90 + 95 = 420</p>
+
+                <p>Étape 2 : Diviser par le nombre de valeurs.</p>
+                <p>420 ÷ 5 = 84</p>
+
+                <p class="important">La moyenne est de 84.</p>
+            </div>
+
+            <h3>Quand utiliser la moyenne?</h3>
+
+            <p>
+                La moyenne est utile lorsque toutes les valeurs doivent contribuer
+                également au résultat. Elle peut toutefois être influencée par des
+                valeurs extrêmement grandes ou petites.
+            </p>
+        </section>
+
+        <!-- WEIGHTED MEAN -->
+        <section class="section-card">
+            <h2>3. La moyenne pondérée</h2>
+
+            <p>
+                La moyenne pondérée est utilisée lorsque certaines valeurs ont plus
+                d'importance que d'autres. Chaque valeur est multipliée par son poids
+                avant le calcul de la moyenne.
+            </p>
+
+            <div class="formula">
+                <strong>Formule :</strong><br>
+                Moyenne pondérée =
+                Somme des (valeurs × poids) ÷ Somme des poids
+            </div>
+
+            <div class="example">
+                <h3>Exemple</h3>
+
+                <p>Un cours utilise les catégories suivantes :</p>
+
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Catégorie</th>
+                            <th>Note</th>
+                            <th>Poids</th>
+                        </tr>
+                        <tr>
+                            <td>Travaux</td>
+                            <td>80 %</td>
+                            <td>20 %</td>
+                        </tr>
+                        <tr>
+                            <td>Tests</td>
+                            <td>70 %</td>
+                            <td>30 %</td>
+                        </tr>
+                        <tr>
+                            <td>Examen final</td>
+                            <td>90 %</td>
+                            <td>50 %</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <p>Étape 1 : Multiplier chaque note par son poids.</p>
+
+                <p>
+                    80 × 0,20 = 16<br>
+                    70 × 0,30 = 21<br>
+                    90 × 0,50 = 45
+                </p>
+
+                <p>Étape 2 : Additionner les résultats.</p>
+
+                <p>16 + 21 + 45 = 82</p>
+
+                <p class="important">La moyenne pondérée est de 82 %.</p>
+            </div>
+
+            <div class="warning">
+                <strong>Attention :</strong>
+                Si les poids sont exprimés en pourcentages, leur somme devrait normalement
+                être égale à 100 %. Pour la formule, on peut utiliser 20, 30 et 50,
+                ou 0,20, 0,30 et 0,50, à condition d'être cohérent.
+            </div>
+
+            <h3>Quand utiliser la moyenne pondérée?</h3>
+
+            <ul>
+                <li>Pour calculer une note finale de cours.</li>
+                <li>Lorsque les catégories ont des poids différents.</li>
+                <li>Lorsque certaines observations représentent plusieurs personnes ou éléments.</li>
+            </ul>
+        </section>
+
+        <!-- GROUPED DATA -->
+        <section class="section-card">
+            <h2>4. La moyenne de données groupées</h2>
+
+            <p>
+                Lorsque les données sont présentées sous forme d'intervalles avec des
+                fréquences, on peut estimer la moyenne à l'aide du milieu de chaque
+                intervalle.
+            </p>
+
+            <p>
+                La moyenne obtenue est une <strong>estimation</strong>, car les valeurs
+                exactes à l'intérieur des intervalles ne sont pas nécessairement connues.
+            </p>
+
+            <div class="formula">
+                <strong>Formule :</strong><br>
+                Moyenne estimée =
+                Σ (milieu de l'intervalle × fréquence) ÷ fréquence totale
+            </div>
+
+            <h3>Comment trouver le milieu d'un intervalle?</h3>
+
+            <div class="formula">
+                <strong>Milieu = (Borne inférieure + Borne supérieure) ÷ 2</strong>
+            </div>
+
+            <div class="example">
+                <h3>Exemple</h3>
+
+                <p>Voici le nombre de personnes dans différents groupes d'âge.</p>
+
+                <div class="table-container">
+                    <table>
+                        <tr>
+                            <th>Intervalle</th>
+                            <th>Milieu</th>
+                            <th>Fréquence</th>
+                            <th>Milieu × fréquence</th>
+                        </tr>
+                        <tr>
+                            <td>0 à 10</td>
+                            <td>5</td>
+                            <td>2</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>10 à 20</td>
+                            <td>15</td>
+                            <td>3</td>
+                            <td>45</td>
+                        </tr>
+                        <tr>
+                            <td>20 à 30</td>
+                            <td>25</td>
+                            <td>1</td>
+                            <td>25</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2">Total</th>
+                            <th>6</th>
+                            <th>80</th>
+                        </tr>
+                    </table>
+                </div>
+
+                <p>Étape 1 : Calculer le milieu de chaque intervalle.</p>
+
+                <p>
+                    (0 + 10) ÷ 2 = 5<br>
+                    (10 + 20) ÷ 2 = 15<br>
+                    (20 + 30) ÷ 2 = 25
+                </p>
+
+                <p>Étape 2 : Multiplier chaque milieu par sa fréquence.</p>
+
+                <p>
+                    (5 × 2) + (15 × 3) + (25 × 1) = 80
+                </p>
+
+                <p>Étape 3 : Diviser par la fréquence totale.</p>
+
+                <p>80 ÷ 6 ≈ 13,33</p>
+
+                <p class="important">
+                    La moyenne estimée est d'environ 13,33.
+                </p>
+            </div>
+
+            <div class="warning">
+                <strong>À retenir :</strong>
+                N'oublie pas de multiplier chaque milieu par sa fréquence. Il ne faut
+                pas simplement calculer la moyenne des milieux.
+            </div>
+        </section>
+
+        <!-- MEDIAN -->
+        <section class="section-card">
+            <h2>5. La médiane</h2>
+
+            <p>
+                La médiane est la valeur centrale d'un ensemble de données lorsque
+                celles-ci sont classées en ordre croissant ou décroissant.
+            </p>
+
+            <h3>Cas 1 : Nombre impair de valeurs</h3>
+
+            <div class="example">
+                <p>Données : 3, 5, 7, 9, 12</p>
+
+                <p>Il y a 5 valeurs. La valeur au milieu est 7.</p>
+
+                <p class="important">Médiane = 7</p>
+            </div>
+
+            <h3>Cas 2 : Nombre pair de valeurs</h3>
+
+            <div class="example">
+                <p>Données : 2, 4, 6, 10</p>
+
+                <p>Les deux valeurs centrales sont 4 et 6.</p>
+
+                <p>Médiane = (4 + 6) ÷ 2 = 5</p>
+
+                <p class="important">Médiane = 5</p>
+            </div>
+
+            <div class="formula">
+                <strong>Étapes pour trouver la médiane :</strong>
+                <ol>
+                    <li>Classer les données en ordre croissant.</li>
+                    <li>Compter le nombre total de valeurs.</li>
+                    <li>Si le nombre est impair, prendre la valeur centrale.</li>
+                    <li>Si le nombre est pair, calculer la moyenne des deux valeurs centrales.</li>
+                </ol>
+            </div>
+
+            <h3>Quand utiliser la médiane?</h3>
+
+            <p>
+                La médiane est particulièrement utile lorsqu'il y a des valeurs extrêmes,
+                car elle est moins influencée par celles-ci que la moyenne.
+            </p>
+        </section>
+
+        <!-- MODE -->
+        <section class="section-card">
+            <h2>6. Le mode</h2>
+
+            <p>
+                Le mode est la valeur qui apparaît le plus souvent dans un ensemble
+                de données.
+            </p>
+
+            <div class="example">
+                <h3>Exemple 1 : Un seul mode</h3>
+
+                <p>Données : 2, 3, 3, 4, 5</p>
+
+                <p>La valeur 3 apparaît deux fois.</p>
+
+                <p class="important">Mode = 3</p>
+            </div>
+
+            <div class="example">
+                <h3>Exemple 2 : Deux modes</h3>
+
+                <p>Données : 1, 1, 2, 3, 3, 4</p>
+
+                <p>Les valeurs 1 et 3 apparaissent toutes les deux deux fois.</p>
+
+                <p class="important">Modes = 1 et 3</p>
+            </div>
+
+            <div class="example">
+                <h3>Exemple 3 : Aucun mode</h3>
+
+                <p>Données : 2, 4, 6, 8</p>
+
+                <p>Toutes les valeurs apparaissent une seule fois.</p>
+
+                <p class="important">Il n'y a pas de mode.</p>
+            </div>
+
+            <h3>À retenir</h3>
+
+            <ul>
+                <li>Il peut y avoir un seul mode.</li>
+                <li>Il peut y avoir plusieurs modes.</li>
+                <li>Un ensemble de données peut ne pas avoir de mode.</li>
+                <li>Le mode peut être utilisé avec des données numériques ou catégorielles.</li>
+            </ul>
+        </section>
+
+        <!-- COMPARISON -->
+        <section class="section-card">
+            <h2>7. Comparaison des mesures</h2>
+
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>Mesure</th>
+                        <th>Comment la trouver?</th>
+                        <th>Point important</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Moyenne arithmétique</strong></td>
+                        <td>Somme des valeurs ÷ nombre de valeurs</td>
+                        <td>Sensible aux valeurs extrêmes.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Moyenne pondérée</strong></td>
+                        <td>Somme des produits valeur × poids ÷ somme des poids</td>
+                        <td>Les valeurs n'ont pas toutes la même importance.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Moyenne de données groupées</strong></td>
+                        <td>Somme des milieux × fréquences ÷ fréquence totale</td>
+                        <td>Donne une estimation de la moyenne.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Médiane</strong></td>
+                        <td>Valeur centrale après avoir ordonné les données</td>
+                        <td>Peu influencée par les valeurs extrêmes.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mode</strong></td>
+                        <td>Valeur la plus fréquente</td>
+                        <td>Peut être absent ou avoir plusieurs valeurs.</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>Comment choisir la bonne mesure?</h3>
+
+            <ul>
+                <li>Utilise la <strong>moyenne arithmétique</strong> lorsque chaque valeur a la même importance.</li>
+                <li>Utilise la <strong>moyenne pondérée</strong> lorsque les valeurs ont des poids différents.</li>
+                <li>Utilise la <strong>moyenne de données groupées</strong> lorsque les données sont fournies en intervalles avec des fréquences.</li>
+                <li>Utilise la <strong>médiane</strong> lorsque tu veux identifier le centre sans être trop influencé par les valeurs extrêmes.</li>
+                <li>Utilise le <strong>mode</strong> lorsque tu veux trouver la valeur ou la catégorie la plus fréquente.</li>
+            </ul>
+        </section>
+
+        <!-- TECHNOLOGY -->
+        <section class="section-card">
+            <h2>8. Vérification avec Google Sheets ou Excel</h2>
+
+            <p>
+                Un tableur permet de calculer rapidement les mesures de tendance centrale.
+                Voici quelques formules utiles.
+            </p>
+
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>Mesure</th>
+                        <th>Formule</th>
+                    </tr>
+                    <tr>
+                        <td>Moyenne arithmétique</td>
+                        <td><code>=AVERAGE(A1:A5)</code></td>
+                    </tr>
+                    <tr>
+                        <td>Moyenne pondérée</td>
+                        <td><code>=SUMPRODUCT(A1:A5,B1:B5)/SUM(B1:B5)</code></td>
+                    </tr>
+                    <tr>
+                        <td>Moyenne de données groupées</td>
+                        <td><code>=SUMPRODUCT(A1:A3,B1:B3)/SUM(B1:B3)</code></td>
+                    </tr>
+                    <tr>
+                        <td>Médiane</td>
+                        <td><code>=MEDIAN(A1:A5)</code></td>
+                    </tr>
+                    <tr>
+                        <td>Mode</td>
+                        <td><code>=MODE.SNGL(A1:A5)</code></td>
+                    </tr>
+                </table>
+            </div>
+
+            <p>
+                Pour la moyenne pondérée, place les valeurs dans la colonne A et les
+                poids correspondants dans la colonne B.
+            </p>
+
+            <p>
+                Pour les données groupées, place les milieux des intervalles dans la
+                colonne A et leurs fréquences dans la colonne B.
+            </p>
+
+            <div class="warning">
+                Les formules ci-dessus utilisent les noms de fonctions anglais.
+                Selon la langue et les paramètres de ton tableur, les noms des fonctions
+                ou les séparateurs peuvent être différents.
+            </div>
+        </section>
+
+        <!-- COMMON ERRORS -->
+        <section class="section-card">
+            <h2>9. Erreurs fréquentes à éviter</h2>
+
+            <ul>
+                <li>Calculer la médiane sans classer les données en ordre.</li>
+                <li>Oublier de diviser la somme par le nombre de valeurs pour la moyenne.</li>
+                <li>Oublier les poids dans une moyenne pondérée.</li>
+                <li>Oublier les fréquences lors du calcul de la moyenne de données groupées.</li>
+                <li>Confondre le mode avec la valeur la plus grande.</li>
+                <li>Supposer qu'un ensemble de données a toujours un seul mode.</li>
+                <li>Oublier que la moyenne de données groupées est une estimation.</li>
+            </ul>
+        </section>
+
+        <!-- RESOURCES -->
+        <section class="section-card">
+            <h2>10. Notes de cours et ressources</h2>
+
+            <p>Consulte ces documents pour revoir la matière de la sous-unité.</p>
+
+            <a class="resource-link"
+               href="https://drive.google.com/file/d/1g1VZvRH-RzkeKVbfLaY9c1677HYHLukX/view?usp=sharing"
+               target="_blank" rel="noopener">
+                <i class="fa fa-file-pdf-o"></i>
+                <strong>Notes de cours — Mesures de tendance centrale</strong>
+            </a>
+
+            <a class="resource-link"
+               href="https://docs.google.com/presentation/d/1QGZPc-58qKlcpBPan1YSAUBFCWZ_YNYNOgZRZgwAXy8/edit?usp=sharing"
+               target="_blank" rel="noopener">
+                <i class="fa fa-file-powerpoint-o"></i>
+                <strong>Présentation de la sous-unité</strong>
+            </a>
+
+            <a class="resource-link"
+               href="https://docs.google.com/document/d/1x9sazEsNTtiy1anLp3kuZ5GSd2F41yj7uwGpoERK54Y/edit?usp=sharing"
+               target="_blank" rel="noopener">
+                <i class="fa fa-file-text-o"></i>
+                <strong>Exercices 2.2 — Mes réponses</strong>
+            </a>
+        </section>
+
+        <!-- FINAL SUMMARY -->
+        <section class="section-card">
+            <h2>11. Résumé final — À mémoriser</h2>
+
+            <div class="formula">
+                <strong>Moyenne arithmétique</strong><br>
+                Somme des valeurs ÷ nombre de valeurs
+            </div>
+
+            <div class="formula">
+                <strong>Moyenne pondérée</strong><br>
+                Σ(valeur × poids) ÷ Σ(poids)
+            </div>
+
+            <div class="formula">
+                <strong>Moyenne de données groupées</strong><br>
+                Σ(milieu × fréquence) ÷ fréquence totale
+            </div>
+
+            <div class="formula">
+                <strong>Médiane</strong><br>
+                Valeur centrale des données ordonnées; si le nombre de valeurs est pair,
+                moyenne des deux valeurs centrales.
+            </div>
+
+            <div class="formula">
+                <strong>Mode</strong><br>
+                Valeur ou catégorie la plus fréquente.
+            </div>
+
+            <p>
+                Le plus important est de reconnaître le type de données et de choisir
+                la mesure appropriée avant de commencer les calculs.
+            </p>
+        </section>
+
+        <footer class="w3-center w3-padding-32">
+            <p>MDM4U — Mesures de tendance centrale</p>
+            <a href="#top" class="w3-button w3-teal w3-round">
+                <i class="fa fa-arrow-up"></i> Retour en haut
+            </a>
+        </footer>
+
+    </div>
+
 </body>
-</html> 
+</html>
+```
