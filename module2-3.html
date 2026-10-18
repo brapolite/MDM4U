@@ -1,92 +1,463 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-<title>MDM4U</title>
+<title>MDM4U - Les mesures de dispersion</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style>
-body {font-family: "Roboto", sans-serif}
-.w3-bar-block .w3-bar-item {
-  padding: 16px;
-  font-weight: bold;
+body {
+    font-family: "Roboto", sans-serif;
+    line-height: 1.7;
 }
+
+.w3-bar-block .w3-bar-item {
+    padding: 16px;
+    font-weight: bold;
+}
+
+.section {
+    margin-bottom: 35px;
+}
+
+.formule {
+    background-color: #f1f1f1;
+    padding: 15px;
+    border-left: 5px solid #009688;
+    margin: 15px 0;
+    font-size: 18px;
+}
+
+.ressource {
+    margin: 15px 0;
+}
+
 </style>
+
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
-<body>
-<!--Navigation bar-->
-<div id="nav-placeholder">
 
-</div>
+<body>
+
+<!-- Navigation bar -->
+<div id="nav-placeholder"></div>
 
 <script>
-$(function(){
-  $("#nav-placeholder").load("nav.html");
+$(function() {
+    $("#nav-placeholder").load("nav.html");
 });
 </script>
-<!--end of Navigation bar-->
+<!-- End of Navigation bar -->
 
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+<div class="w3-overlay w3-hide-large w3-animate-opacity"
+     onclick="w3_close()"
+     style="cursor:pointer"
+     id="myOverlay"></div>
 
 <div class="w3-main" style="margin-left:250px;">
 
-<div id="myTop" class="w3-container w3-top w3-theme w3-large">
-  <p><i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge" onclick="w3_open()"></i>
-  <span id="myIntro" class="w3-hide">MDM4U</span></p>
-</div>
+    <div id="myTop" class="w3-container w3-top w3-theme w3-large">
+        <p>
+            <i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge"
+               onclick="w3_open()"></i>
+            <span id="myIntro" class="w3-hide">MDM4U</span>
+        </p>
+    </div>
 
-<header class="w3-container w3-theme" style="padding:64px 32px">
-  <h1 class="w3-xxxlarge">Titre du module</h1>
-</header>
+    <header class="w3-container w3-theme" style="padding:64px 32px">
+        <h1 class="w3-xxxlarge">Les mesures de dispersion</h1>
+        <p>Module de mathématiques MDM4U</p>
+    </header>
 
-<div class="w3-container" style="padding:32px">
+    <div class="w3-container" style="padding:32px">
 
-<!-- Tu peux complètement modifier le contenu ci-dessous -->
+        <!-- Introduction -->
+        <div class="section">
+            <h2>1. À quoi servent les mesures de dispersion?</h2>
 
-<h1>Entête 1</h1>
-<h2>Entête 2</h2>
-<p>Ceci est un paragraphe qui contient <a href="https://www.w3schools.com/html/html_links.asp" target="_blank">un lien</a> qui ouvre dans une nouvelle fenêtre.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Ui8o6fJjkck" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>
+                Les mesures de dispersion servent à comprendre à quel point
+                les données d'un ensemble sont réparties ou éloignées les unes
+                des autres. Elles nous permettent de voir si les valeurs sont
+                proches ou si elles sont très différentes.
+            </p>
 
+            <p>
+                Par exemple, deux classes peuvent avoir la même moyenne à un
+                examen, mais des résultats très différents. Dans une classe,
+                les notes peuvent être proches de la moyenne, tandis que dans
+                l'autre, elles peuvent être très éloignées. Les mesures de
+                dispersion permettent de comparer ces situations.
+            </p>
+        </div>
 
-<!-- Tu peux complètement modifier le contenu par dessus cette ligne -->
+        <hr>
 
-</div>
+        <!-- Étendue -->
+        <div class="section">
+            <h2>2. L'étendue</h2>
 
-<footer class="w3-container w3-theme" style="padding:32px">
-  <p>Contenu de cette page web par M. Gore (prénom: Pytha)</p>
-</footer>
-     
+            <p>
+                L'étendue est la différence entre la plus grande valeur et
+                la plus petite valeur d'un ensemble de données. Elle donne
+                une idée de l'écart total entre les deux extrêmes.
+            </p>
+
+            <div class="formule">
+                <strong>Formule :</strong><br>
+                Étendue = valeur maximale − valeur minimale
+            </div>
+
+            <p><strong>Exemple :</strong></p>
+
+            <p>
+                Voici les notes suivantes : 5, 7, 8, 10, 12.
+            </p>
+
+            <p>
+                La valeur maximale est 12 et la valeur minimale est 5.
+            </p>
+
+            <div class="formule">
+                Étendue = 12 − 5 = 7
+            </div>
+
+            <p>
+                L'étendue est donc de 7. Plus l'étendue est grande, plus
+                l'écart entre les valeurs extrêmes est important.
+            </p>
+        </div>
+
+        <hr>
+
+        <!-- Quartiles -->
+        <div class="section">
+            <h2>3. Les quartiles</h2>
+
+            <p>
+                Les quartiles divisent un ensemble de données ordonnées en
+                quatre parties. Ils permettent de comprendre comment les
+                données sont réparties.
+            </p>
+
+            <ul>
+                <li>
+                    <strong>Premier quartile (Q1) :</strong> environ 25 %
+                    des données sont inférieures ou égales à cette valeur.
+                </li>
+                <li>
+                    <strong>Deuxième quartile (Q2) :</strong> c'est la médiane.
+                    Environ 50 % des données se trouvent de chaque côté.
+                </li>
+                <li>
+                    <strong>Troisième quartile (Q3) :</strong> environ 75 %
+                    des données sont inférieures ou égales à cette valeur.
+                </li>
+            </ul>
+
+            <p>
+                Pour trouver les quartiles, il faut d'abord classer les
+                données en ordre croissant. Ensuite, on trouve la médiane
+                et les médianes des deux moitiés de la distribution, selon
+                la méthode utilisée dans le cours.
+            </p>
+
+            <p><strong>Exemple :</strong></p>
+
+            <p>
+                Pour les données 2, 4, 6, 8, 10, 12, 14, on obtient :
+            </p>
+
+            <ul>
+                <li>Q1 = 4</li>
+                <li>Q2 = 8</li>
+                <li>Q3 = 12</li>
+            </ul>
+
+            <p>
+                Les quartiles permettent donc de repérer où se situent les
+                données dans un ensemble. Les résultats peuvent varier selon
+                la convention de calcul utilisée, particulièrement pour les
+                petits ensembles de données.
+            </p>
+        </div>
+
+        <hr>
+
+        <!-- Écart interquartile -->
+        <div class="section">
+            <h2>4. L'écart interquartile</h2>
+
+            <p>
+                L'écart interquartile mesure la dispersion des 50 % de données
+                qui se trouvent au centre de l'ensemble. Il correspond à la
+                différence entre le troisième quartile et le premier quartile.
+            </p>
+
+            <div class="formule">
+                <strong>Formule :</strong><br>
+                Écart interquartile = Q3 − Q1
+            </div>
+
+            <p><strong>Exemple :</strong></p>
+
+            <p>
+                Si Q1 = 4 et Q3 = 12 :
+            </p>
+
+            <div class="formule">
+                Écart interquartile = 12 − 4 = 8
+            </div>
+
+            <p>
+                L'écart interquartile est donc de 8. Un écart interquartile
+                plus petit signifie que les données centrales sont plus
+                regroupées. Contrairement à l'étendue, il est peu influencé
+                par les valeurs extrêmes.
+            </p>
+        </div>
+
+        <hr>
+
+        <!-- Écart type -->
+        <div class="section">
+            <h2>5. L'écart type</h2>
+
+            <p>
+                L'écart type mesure à quel point les valeurs d'un ensemble
+                sont éloignées de leur moyenne. Il tient compte de toutes
+                les données.
+            </p>
+
+            <p>
+                Un écart type faible signifie que les valeurs sont généralement
+                proches de la moyenne. Un écart type élevé signifie que les
+                valeurs sont davantage dispersées.
+            </p>
+
+            <p>
+                L'écart type est exprimé dans la même unité que les données.
+                Par exemple, si les données représentent des notes sur 100,
+                l'écart type est aussi exprimé en points.
+            </p>
+        </div>
+
+        <hr>
+
+        <!-- Calcul de l'écart type -->
+        <div class="section">
+            <h2>6. Comment calculer l'écart type?</h2>
+
+            <p>
+                Pour calculer l'écart type d'une population, on peut suivre
+                les étapes suivantes :
+            </p>
+
+            <ol>
+                <li>Calculer la moyenne de toutes les données.</li>
+                <li>Soustraire la moyenne de chaque valeur.</li>
+                <li>Élever chaque différence au carré.</li>
+                <li>Calculer la moyenne de toutes les différences au carré.</li>
+                <li>Calculer la racine carrée du résultat obtenu.</li>
+            </ol>
+
+            <div class="formule">
+                <strong>Formule de l'écart type d'une population :</strong>
+                <br><br>
+                σ = √[Σ(x − μ)² / N]
+            </div>
+
+            <p>
+                Dans cette formule :
+            </p>
+
+            <ul>
+                <li><strong>σ</strong> représente l'écart type.</li>
+                <li><strong>x</strong> représente chaque valeur de l'ensemble.</li>
+                <li><strong>μ</strong> représente la moyenne.</li>
+                <li><strong>N</strong> représente le nombre total de valeurs.</li>
+                <li><strong>Σ</strong> signifie qu'il faut additionner les résultats.</li>
+            </ul>
+
+            <p><strong>Exemple :</strong></p>
+
+            <p>
+                Prenons les données suivantes : 2, 4 et 6.
+            </p>
+
+            <p>
+                <strong>Étape 1 :</strong> Calculer la moyenne.
+            </p>
+
+            <div class="formule">
+                Moyenne = (2 + 4 + 6) / 3 = 4
+            </div>
+
+            <p>
+                <strong>Étape 2 :</strong> Soustraire la moyenne à chaque valeur,
+                puis élever les différences au carré.
+            </p>
+
+            <ul>
+                <li>(2 − 4)² = 4</li>
+                <li>(4 − 4)² = 0</li>
+                <li>(6 − 4)² = 4</li>
+            </ul>
+
+            <p>
+                <strong>Étape 3 :</strong> Calculer la moyenne des différences
+                au carré.
+            </p>
+
+            <div class="formule">
+                (4 + 0 + 4) / 3 = 8 / 3 ≈ 2,67
+            </div>
+
+            <p>
+                <strong>Étape 4 :</strong> Calculer la racine carrée.
+            </p>
+
+            <div class="formule">
+                σ = √(2,67) ≈ 1,63
+            </div>
+
+            <p>
+                L'écart type de cette population est donc d'environ 1,63.
+                Cela indique à quel point les valeurs sont dispersées autour
+                de leur moyenne, qui est de 4.
+            </p>
+
+            <p>
+                <strong>Attention :</strong> pour un échantillon, la formule
+                utilise généralement n − 1 au dénominateur au lieu de N.
+                Il faut utiliser la formule demandée dans votre cours.
+            </p>
+        </div>
+
+        <hr>
+
+        <!-- Ressources du cours -->
+        <div class="section">
+            <h2>7. Ressources du cours</h2>
+
+            <div class="ressource">
+                <h3>Google Slides sur ce cours</h3>
+
+                <p>
+                    Consultez la présentation pour revoir les notions et les
+                    exemples du cours.
+                </p>
+
+                <p>
+                    <a href="https://docs.google.com/presentation/d/1tXPZIZGQORBiqncTZE7DXeNAXTLYVB5rUZZRTPkWiaU/edit?slide=id.gbec9d4ff2e_0_734#slide=id.gbec9d4ff2e_0_734"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Ouvrir les Google Slides
+                    </a>
+                </p>
+            </div>
+
+            <div class="ressource">
+                <h3>Exercices 2.3</h3>
+
+                <p>
+                    Utilisez ces exercices pour pratiquer les mesures de
+                    dispersion et vérifier votre compréhension.
+                </p>
+
+                <p>
+                    <a href="https://docs.google.com/document/d/1rECTJcddrs42DoheE_1jHu_PpneuUGEM/edit?usp=sharing&ouid=109655859459153906598&rtpof=true&sd=true"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Ouvrir les exercices 2.3
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Sources -->
+        <div class="section">
+            <h2>8. Liste des sources utilisées</h2>
+
+            <p>
+                Consultez le document qui contient les sources utilisées pour
+                préparer cette page.
+            </p>
+
+            <p>
+                <a href="URL_A_REMPLACER_PAR_LE_LIEN_DE_TON_DOCUMENT"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Consulter la liste des sources
+                </a>
+            </p>
+
+            <p>
+                <em>
+                    Remplacez URL_A_REMPLACER_PAR_LE_LIEN_DE_TON_DOCUMENT
+                    par le lien de votre document Google Docs contenant
+                    les sources.
+                </em>
+            </p>
+        </div>
+
+    </div>
+
+    <footer class="w3-container w3-theme" style="padding:32px">
+        <p>Contenu de cette page web par M. Gore (prénom: Pytha)</p>
+    </footer>
+
 </div>
 
 <script>
 // Open and close the sidebar on medium and small screens
 function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("myOverlay").style.display = "block";
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
 }
 
 function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-  document.getElementById("myOverlay").style.display = "none";
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
 }
 
 // Change style of top container on scroll
-window.onscroll = function() {myFunction()};
-function myFunction() {
-  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-    document.getElementById("myTop").classList.add("w3-card-4", "w3-animate-opacity");
-    document.getElementById("myIntro").classList.add("w3-show-inline-block");
-  } else {
-    document.getElementById("myIntro").classList.remove("w3-show-inline-block");
-    document.getElementById("myTop").classList.remove("w3-card-4", "w3-animate-opacity");
-  }
-}
+window.onscroll = function() {
+    myFunction();
+};
 
+function myFunction() {
+    if (document.body.scrollTop > 80 ||
+        document.documentElement.scrollTop > 80) {
+
+        document.getElementById("myTop").classList.add(
+            "w3-card-4",
+            "w3-animate-opacity"
+        );
+
+        document.getElementById("myIntro").classList.add(
+            "w3-show-inline-block"
+        );
+
+    } else {
+        document.getElementById("myIntro").classList.remove(
+            "w3-show-inline-block"
+        );
+
+        document.getElementById("myTop").classList.remove(
+            "w3-card-4",
+            "w3-animate-opacity"
+        );
+    }
+}
 </script>
-     
+
 </body>
-</html> 
+</html>
