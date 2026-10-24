@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>MDM4U</title>
+<title>MDM4U - Module 2.5</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
@@ -12,6 +12,13 @@ body {font-family: "Roboto", sans-serif}
 .w3-bar-block .w3-bar-item {
   padding: 16px;
   font-weight: bold;
+}
+.graph-container {
+  margin-bottom: 40px;
+  padding: 16px;
+}
+iframe {
+  max-width: 100%;
 }
 </style>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -39,27 +46,48 @@ $(function(){
 </div>
 
 <header class="w3-container w3-theme" style="padding:64px 32px">
-  <h1 class="w3-xxxlarge">Titre du module</h1>
+  <h1 class="w3-xxxlarge">Exercice 2 - Analyse de corrélation</h1>
 </header>
 
 <div class="w3-container" style="padding:32px">
 
-<!-- Tu peux complètement modifier le contenu ci-dessous -->
+<!-- Graphique 1 -->
+<div class="w3-card w3-white graph-container">
+  <h2>Graphique 1 : Prix de l'essence vs Quantité vendue</h2>
+  <div class="w3-center w3-padding-16">
+    <iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQvyoGXonsJ8QXkcIiy35Oy4H41c2XWe0VzXZxwFZt4dzyQQ2wf7oJsIgLW9TTX_hkGj8GvHslVEm23/pubchart?oid=334874297&amp;format=interactive"></iframe>
+  </div>
+  <p><strong>Coefficient de corrélation :</strong> r = -0.8988388972</p>
+  <p>Il existe une corrélation négative forte entre le prix de l’essence et la quantité vendue. Lorsque le prix augmente, la quantité d’essence vendue tend à diminuer.</p>
+</div>
 
-<h1>Entête 1</h1>
-<h2>Entête 2</h2>
-<p>Ceci est un paragraphe qui contient <a href="https://www.w3schools.com/html/html_links.asp" target="_blank">un lien</a> qui ouvre dans une nouvelle fenêtre.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Ui8o6fJjkck" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<!-- Graphique 2 -->
+<div class="w3-card w3-white graph-container">
+  <h2>Graphique 2 : Taille vs Poids</h2>
+  <div class="w3-center w3-padding-16">
+    <iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQvyoGXonsJ8QXkcIiy35Oy4H41c2XWe0VzXZxwFZt4dzyQQ2wf7oJsIgLW9TTX_hkGj8GvHslVEm23/pubchart?oid=1299805321&amp;format=interactive"></iframe>
+  </div>
+  <p><strong>Coefficient de corrélation :</strong> r ≈ 0.405</p>
+  <p>Le coefficient de corrélation est r ≈ 0.405. Il existe donc une corrélation positive faible à modérée entre la taille et le poids. Cela signifie que les personnes plus grandes tendent généralement à peser davantage, mais la relation n’est pas très forte.</p>
+</div>
 
-
-<!-- Tu peux complètement modifier le contenu par dessus cette ligne -->
+<!-- Graphique 3 -->
+<div class="w3-card w3-white graph-container">
+  <h2>Graphique 3 : Minutes de jeu vs Points marqués</h2>
+  <div class="w3-center w3-padding-16">
+    <iframe src="https://www.desmos.com/calculator/ywdqt3gzmi?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder="0"></iframe>
+  </div>
+  <p><strong>Droite d'ajustement :</strong> y ≈ 0.279x + 3.416</p>
+  <p><strong>Coefficient de corrélation :</strong> r ≈ 0.908</p>
+  <p>La droite la mieux ajustée est y ≈ 0.279x + 3.416. Le coefficient de corrélation est r ≈ 0.908. Il existe donc une corrélation positive forte entre les minutes de jeu et les points marqués. En général, plus les minutes de jeu augmentent, plus le nombre de points marqués augmente.</p>
+</div>
 
 </div>
 
 <footer class="w3-container w3-theme" style="padding:32px">
   <p>Contenu de cette page web par M. Gore (prénom: Pytha)</p>
 </footer>
-     
+      
 </div>
 
 <script>
@@ -87,6 +115,6 @@ function myFunction() {
 }
 
 </script>
-     
+      
 </body>
-</html> 
+</html>
