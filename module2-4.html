@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>MDM4U</title>
+<title>MDM4U - Module 2.4</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
@@ -12,6 +12,32 @@ body {font-family: "Roboto", sans-serif}
 .w3-bar-block .w3-bar-item {
   padding: 16px;
   font-weight: bold;
+}
+.graph-container {
+  margin-bottom: 40px;
+  padding: 16px;
+}
+iframe {
+  max-width: 100%;
+}
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+.video-responsive {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+.video-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 </style>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -39,27 +65,84 @@ $(function(){
 </div>
 
 <header class="w3-container w3-theme" style="padding:64px 32px">
-  <h1 class="w3-xxxlarge">Titre du module</h1>
+  <h1 class="w3-xxxlarge">Module 2.4 - Distribution Normale & Écart Réduit</h1>
 </header>
 
 <div class="w3-container" style="padding:32px">
 
-<!-- Tu peux complètement modifier le contenu ci-dessous -->
+  <!-- PARTIE 2.4A -->
+  <div class="w3-card w3-white graph-container">
+    <h2>Partie 2.4A : La Distribution Normale</h2>
+    
+    <!-- Image Distribution Normale -->
+    <div class="w3-center w3-padding-16">
+      <img src="https://tikz.net/wp-content/uploads/2023/12/normal-distribution.png" alt="Distribution Normale" class="img-responsive">
+      <p class="w3-small">
+        Source de l'image : <a href="https://tikz.net/normal-distribution/" target="_blank" class="w3-text-teal">TikZ.net - Normal Distribution</a>
+      </p>
+    </div>
 
-<h1>Entête 1</h1>
-<h2>Entête 2</h2>
-<p>Ceci est un paragraphe qui contient <a href="https://www.w3schools.com/html/html_links.asp" target="_blank">un lien</a> qui ouvre dans une nouvelle fenêtre.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Ui8o6fJjkck" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <!-- Réponses aux exercices 2.4a -->
+    <div class="w3-padding-16">
+      <h3>Exercices 2.4A - Travaux et Réponses</h3>
+      <ul>
+        <li>
+          <strong>Exercices 2.4A (Partie 1) :</strong> 
+          <a href="https://docs.google.com/document/d/13aMksmlZ5_ZLZ5zk6K3hTa5li36ntb5Tkru7EmPAFU0/edit?usp=sharing" target="_blank" class="w3-button w3-teal w3-round w3-small">
+            <i class="fa fa-external-link"></i> Voir la Partie 1 (Google Doc)
+          </a>
+        </li>
+        <li style="margin-top: 10px;">
+          <strong>Exercices 2.4A (Partie 2 - Travail manuscrit numérisé) :</strong> 
+          <a href="https://docs.google.com/document/d/11izxYFGc9tHv9U5XSy99VjSYysR8bbPeP2gYtr7vg68/edit?usp=sharing" target="_blank" class="w3-button w3-teal w3-round w3-small">
+            <i class="fa fa-external-link"></i> Voir le travail fait à la main (Google Doc)
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
 
+  <!-- PARTIE 2.4B -->
+  <div class="w3-card w3-white graph-container">
+    <h2>Partie 2.4B : L'Écart Réduit (Cote Z)</h2>
+    
+    <!-- Vidéo expliquant l'écart réduit -->
+    <h3>Vidéo explicative</h3>
+    <div class="video-responsive w3-margin-bottom">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/LtMXxPmhMJg" title="Explication de l'écart réduit" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
 
-<!-- Tu peux complètement modifier le contenu par dessus cette ligne -->
+    <!-- Liens utiles -->
+    <h3>Ressources et Liens Utiles</h3>
+    <div class="w3-bar-block">
+      <p>
+        <a href="https://drive.google.com/file/d/1i96RvRYcdpm8U3uEDC9J-RqFFtf-M_0x/view" target="_blank" class="w3-button w3-light-grey w3-block w3-left-align">
+          <i class="fa fa-file-pdf-o w3-text-red"></i> Document de cours / Fiche de référence (Google Drive)
+        </a>
+      </p>
+      <p>
+        <a href="https://www.desmos.com/calculator/jdgiqvxwum" target="_blank" class="w3-button w3-light-grey w3-block w3-left-align">
+          <i class="fa fa-calculator w3-text-green"></i> Outil d'exploration interactif (Calculatrice Desmos)
+        </a>
+      </p>
+    </div>
+
+    <!-- Exercices 2.4B -->
+    <h3>Devoir & Réponses</h3>
+    <p>
+      <strong>Exercices 2.4B :</strong> 
+      <a href="https://docs.google.com/document/d/1bo_3_fvEXD_kyGnNZbVHCUaN0-LODTwFGPo7WpntbSs/edit?usp=sharing" target="_blank" class="w3-button w3-teal w3-round w3-small">
+        <i class="fa fa-external-link"></i> Voir mes réponses aux exercices 2.4B (Google Doc)
+      </a>
+    </p>
+  </div>
 
 </div>
 
 <footer class="w3-container w3-theme" style="padding:32px">
   <p>Contenu de cette page web par M. Gore (prénom: Pytha)</p>
 </footer>
-     
+      
 </div>
 
 <script>
@@ -85,9 +168,7 @@ function myFunction() {
     document.getElementById("myTop").classList.remove("w3-card-4", "w3-animate-opacity");
   }
 }
-
 </script>
-     
+      
 </body>
-</html> 
-
+</html>
